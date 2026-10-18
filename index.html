@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sala de Jogos</title>
+  <meta name="description" content="Jogos feitos em casa, para jogar no navegador e no Meta Quest.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='26' fill='%23ff8a1e'/></svg>">
+  <style>
+    :root {
+      --bg: #0f1218;
+      --panel: #181d27;
+      --panel-hi: #202838;
+      --text: #eef1f7;
+      --dim: #97a1b8;
+      --accent: #ff8a1e;
+      --vr: #6ad3a8;
+      --line: #2a3243;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-image: radial-gradient(circle at 15% -10%, rgba(255,138,30,0.14), transparent 45%),
+                        radial-gradient(circle at 110% 20%, rgba(106,211,168,0.10), transparent 40%);
+    }
+    main { max-width: 980px; margin: 0 auto; padding: 48px 20px 64px; }
+    header { margin-bottom: 36px; }
+    h1 { font-size: clamp(36px, 6vw, 56px); margin: 0 0 8px; letter-spacing: -0.02em; }
+    h1 span { color: var(--accent); }
+    header p { margin: 0; color: var(--dim); font-size: 19px; line-height: 1.5; max-width: 640px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
+    .game {
+      display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; overflow: hidden; color: inherit; text-decoration: none;
+      transition: transform .15s, background .15s, border-color .15s;
+    }
+    .game:hover, .game:focus-visible { transform: translateY(-3px); background: var(--panel-hi); border-color: var(--accent); outline: none; }
+    .cover { height: 150px; display: grid; place-items: center; }
+    .cover svg { width: 100%; height: 100%; display: block; }
+    .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #262e3f; color: var(--dim); }
+    .tag.vr { background: rgba(106,211,168,0.15); color: var(--vr); }
+    h2 { margin: 0; font-size: 26px; }
+    .body p { margin: 0; color: var(--dim); line-height: 1.5; font-size: 16px; flex: 1; }
+    .play {
+      margin-top: 6px; align-self: flex-start; background: var(--accent); color: #1a1006;
+      font-weight: 800; font-size: 18px; padding: 12px 26px; border-radius: 12px;
+    }
+    .tip { margin-top: 40px; padding: 18px 20px; border: 1px dashed var(--line); border-radius: 14px; color: var(--dim); line-height: 1.6; }
+    .tip strong { color: var(--text); }
+    @media (max-width: 520px) { main { padding-top: 32px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Sala de <span>Jogos</span></h1>
+      <p>Jogos feitos em casa. Rodam direto no navegador, sem instalar nada. Os marcados com VR também funcionam no Meta Quest.</p>
+    </header>
+
+    <section class="grid">
+      <a class="game" href="PingPongVR/">
+        <div class="cover" aria-hidden="true">
+          <svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="150" fill="#7a2a26"/>
+            <polygon points="70,140 250,140 215,40 105,40" fill="#1c4f8f"/>
+            <polygon points="70,140 250,140 215,40 105,40" fill="none" stroke="#fff" stroke-width="3"/>
+            <line x1="160" y1="40" x2="160" y2="140" stroke="#fff" stroke-width="1.5"/>
+            <rect x="92" y="78" width="136" height="12" fill="#111" opacity="0.75"/>
+            <circle cx="196" cy="56" r="7" fill="#ff8a1e"/>
+            <g transform="translate(250 92) rotate(-25)"><ellipse rx="22" ry="26" fill="#d23c3c"/><rect x="-5" y="22" width="10" height="26" rx="3" fill="#c9a06a"/></g>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="tags"><span class="tag vr">VR · Quest</span><span class="tag">PC com mouse</span></div>
+          <h2>Ping Pong VR</h2>
+          <p>Torneio de ping pong contra 5 adversários, do iniciante à campeã. No Quest, a raquete fica na sua mão.</p>
+          <span class="play">Jogar</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="tip">
+      <strong>No Meta Quest:</strong> abra o jogo no navegador do óculos e aperte <strong>Entrar em VR</strong>.
+      Dica: salve esta página nos favoritos do navegador do Quest para não ter que digitar o endereço de novo.
+    </div>
+  </main>
+</body>
+</html>
